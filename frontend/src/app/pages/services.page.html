@@ -1,0 +1,16 @@
+@if (data$ | async; as data) {
+  <section class="wrap">
+    <p class="eyebrow">Services</p>
+    <h1>What we take on</h1>
+    <p class="lede">{{ data.site.pricingNote }}</p>
+    <div class="grid-2">
+      @for (item of data.services; track item.title) {
+        <article class="panel">
+          <h2>{{ item.title }}</h2>
+          <p>{{ item.body }}</p>
+        </article>
+      }
+    </div>
+    <p style="margin-top: 1.5rem"><a class="btn" routerLink="/contact">Ask for a quote</a></p>
+  </section>
+}

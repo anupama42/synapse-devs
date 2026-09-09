@@ -1,0 +1,57 @@
+@if (data$ | async; as data) {
+  <section class="wrap contact">
+    <p class="eyebrow">Contact</p>
+    <h1>Tell us what you need built.</h1>
+    <p class="lede">
+      Write through the form, or email
+      <a [href]="'mailto:' + data.site.email">{{ data.site.email }}</a>
+      /
+      <a [href]="data.site.instagram" target="_blank" rel="noopener">&#64;{{ data.site.instagramHandle }}</a>
+      on Instagram.
+    </p>
+    <form class="panel" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <label>
+        Name
+        <input formControlName="name" autocomplete="name" [class.invalid]="showError('name')" />
+        @if (showError('name')) {
+          <span class="err">Name is required.</span>
+        }
+      </label>
+      <label>
+        Email
+        <input
+          formControlName="email"
+          type="text"
+          inputmode="email"
+          autocomplete="email"
+          [class.invalid]="showError('email')"
+        />
+        @if (showError('email')) {
+          <span class="err">{{ emailHint() }}</span>
+        }
+      </label>
+      <label>
+        Message
+        <textarea formControlName="message" rows="6" [class.invalid]="showError('message')"></textarea>
+        @if (showError('message')) {
+          <span class="err">Message is required.</span>
+        }
+      </label>
+      <button class="btn" type="submit" [disabled]="status === 'sending'">
+        {{ status === 'sending' ? 'Sending…' : 'Send' }}
+      </button>
+      @if (status === 'sent') {
+        <p class="ok">Sent. It will arrive at {{ data.site.email }} — we’ll reply to the address you entered.</p>
+      }
+      @if (status === 'activate') {
+        <p class="ok">
+          Check {{ data.site.email }} (and spam) for a FormSubmit “Activate Form” email and click it once. After that,
+          new enquiries will land in Gmail.
+        </p>
+      }
+      @if (status === 'error') {
+        <p class="err">{{ errorText }}</p>
+      }
+    </form>
+  </section>
+}

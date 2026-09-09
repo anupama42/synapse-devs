@@ -1,0 +1,29 @@
+<article class="card" [style.--accent]="project.accent">
+  <div class="shot" aria-hidden="true">
+    <div class="chrome">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="screen">
+      <p class="shot-kicker">{{ project.category }}</p>
+      <p class="shot-title">{{ project.name }}</p>
+      <div class="bars">
+        <i></i><i></i><i></i>
+      </div>
+    </div>
+  </div>
+  <div class="body">
+    <p class="cat">{{ project.category }}</p>
+    <h3>{{ project.name }}</h3>
+    <p>{{ project.shortDescription }}</p>
+    <p class="role"><strong>Role.</strong> {{ project.role }}</p>
+    <p class="highlight">{{ project.highlight }}</p>
+    <div class="tags">
+      @for (tag of project.techStack; track tag) {
+        <span>{{ tag }}</span>
+      }
+    </div>
+    @if (project.liveUrl) {
+      <a class="cta" [href]="project.liveUrl" target="_blank" rel="noopener">Visit live site →</a>
+    }
+  </div>
+</article>

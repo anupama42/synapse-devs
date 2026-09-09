@@ -1,0 +1,13 @@
+<section class="wrap">
+  <p class="eyebrow">Work</p>
+  <h1>Four live builds. Four industries.</h1>
+  <p class="lede">
+    SaaS, industrial B2B, hospitality, and corporate security — variety is the point. Each card uses the same
+    format so you can compare stack, role, and a click-through to the live site.
+  </p>
+  <div class="grid-2">
+    @for (project of projects$ | async; track project.slug) {
+      <app-project-card [project]="project" />
+    }
+  </div>
+</section>

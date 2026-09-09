@@ -1,0 +1,13 @@
+import { Component, inject } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { ApiService } from '../api.service';
+
+@Component({
+  selector: 'app-about',
+  imports: [AsyncPipe, RouterLink],
+  templateUrl: './about.page.html',
+})
+export class AboutPage {
+  data$ = inject(ApiService).site();
+}

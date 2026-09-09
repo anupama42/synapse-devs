@@ -1,0 +1,24 @@
+@if (data$ | async; as data) {
+  <section class="wrap">
+    <p class="eyebrow">Skills / tech stack</p>
+    <h1>Tools we ship with</h1>
+    <p class="lede">Visual inventory of the stack behind the four projects — and this site (MEAN).</p>
+    <div class="grid-2">
+      @for (group of ['Frontend', 'Mobile', 'Backend', 'Data', 'Architecture', 'Delivery']; track group) {
+        <article class="panel">
+          <h2>{{ group }}</h2>
+          <div class="tags" style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem">
+            @for (skill of data.skills; track skill.name) {
+              @if (skill.group === group) {
+                <span
+                  style="padding:.4rem .75rem;border-radius:999px;border:1px solid rgba(0,229,255,.35)"
+                  >{{ skill.name }}</span
+                >
+              }
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+}
