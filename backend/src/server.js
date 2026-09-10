@@ -22,10 +22,6 @@ app.use(cors({
   origin: 'https://synapse-devs.netlify.app',
   credentials: true // only if you're using cookies/auth; omit if not
 }));
-
-// routes go AFTER this line
-app.use('/api/site', siteRouter);
-app.use('/api/projects', projectsRouter);
 app.use(express.json());
 app.use('/live', express.static(path.join(__dirname, '../public/live')));
 
