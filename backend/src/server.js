@@ -21,7 +21,7 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/synaps
 app.use(
   cors({
     origin: [
-      'https://synapse-devs.netlify.app',
+      'https://synapse-devs.onrender.com',
       'http://127.0.0.1:4200',
       'http://localhost:4200',
     ],
