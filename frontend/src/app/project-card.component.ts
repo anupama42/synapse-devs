@@ -8,4 +8,8 @@ import { Project } from './models';
 })
 export class ProjectCardComponent {
   @Input({ required: true }) project!: Project;
+
+  get thumbnailSrc(): string {
+    return this.project.thumbnail || `/projects/${this.project.slug}.png`;
+  }
 }

@@ -38,6 +38,7 @@ export interface Project {
   name: string;
   category: string;
   liveUrl: string;
+  thumbnail?: string;
   shortDescription: string;
   description: string;
   techStack: string[];

@@ -6,6 +6,7 @@ const projectSchema = new mongoose.Schema(
     name: { type: String, required: true },
     category: String,
     liveUrl: String,
+    thumbnail: String,
     shortDescription: String,
     description: String,
     techStack: [String],

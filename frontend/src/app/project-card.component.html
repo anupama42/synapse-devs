@@ -1,5 +1,20 @@
 <article class="row">
-  <div>
+  @if (project.liveUrl) {
+    <a
+      class="thumb"
+      [href]="project.liveUrl"
+      target="_blank"
+      rel="noopener"
+      [attr.aria-label]="'Open live site: ' + project.name"
+    >
+      <img [src]="thumbnailSrc" [alt]="project.name + ' landing page'" />
+    </a>
+  } @else {
+    <div class="thumb">
+      <img [src]="thumbnailSrc" [alt]="project.name + ' preview'" />
+    </div>
+  }
+  <div class="copy">
     <p class="cat">{{ project.category }}</p>
     <h3>{{ project.name }}</h3>
     <p>{{ project.shortDescription }}</p>
@@ -12,7 +27,4 @@
       }
     </div>
   </div>
-  @if (project.liveUrl) {
-    <a class="cta" [href]="project.liveUrl" target="_blank" rel="noopener">Visit live site</a>
-  }
 </article>

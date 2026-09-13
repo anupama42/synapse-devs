@@ -71,6 +71,7 @@ module.exports = {
       name: 'Fixt',
       category: 'SaaS / Booking platform',
       liveUrl: 'https://fixtbookingsaas.netlify.app/',
+      thumbnail: '/projects/fixt.png',
       shortDescription:
         'Online appointment booking for independent service providers — public booking, no customer account required.',
       description:
@@ -88,6 +89,7 @@ module.exports = {
       name: 'Raaj Bearings',
       category: 'B2B e-commerce / Product catalog',
       liveUrl: 'https://raajbearings.netlify.app/',
+      thumbnail: '/projects/real-bearings.png',
       shortDescription:
         'Industrial bearings catalog with multi-field filters and enquiry-first lead capture — WhatsApp and email, not a cart.',
       description:
@@ -104,6 +106,7 @@ module.exports = {
       name: 'Nordic Nook',
       category: 'Business / Hospitality website',
       liveUrl: 'https://nordicnookcafe.netlify.app/',
+      thumbnail: '/projects/nordic-nook.png',
       shortDescription:
         'A Scandinavian café marketing site: spaces, daily menu, testimonials, and a brand-forward visual system.',
       description:
@@ -120,6 +123,7 @@ module.exports = {
       name: 'Loyal Protection & Solution',
       category: 'Corporate / Service business website',
       liveUrl: 'https://loyalprotectionandsolution.netlify.app/',
+      thumbnail: '/projects/lps.png',
       shortDescription:
         'Corporate site for a security and manpower company — services, vetting process, FAQ, quotes, careers.',
       description:
@@ -136,6 +140,7 @@ module.exports = {
       name: "The Baker's Pantry",
       category: 'E-commerce / Specialty retail',
       liveUrl: 'https://thebakerspantry.netlify.app',
+      thumbnail: '/projects/bakers-pantry.png',
       shortDescription:
         'A modern supply shop for artisan bakers — raw ingredients, décor tools, and weekend masterclasses.',
       description:
@@ -152,6 +157,7 @@ module.exports = {
       name: 'Apex Athletics',
       category: 'Business / Fitness club website',
       liveUrl: 'https://apex-athletics-khaki.vercel.app/',
+      thumbnail: '/projects/apex-athletics.png',
       shortDescription:
         'High-performance club site: training pillars, class calendar, membership tiers, and trial CTAs.',
       description:
@@ -168,6 +174,7 @@ module.exports = {
       name: 'Vance Studio',
       category: 'Portfolio / Photography',
       liveUrl: 'https://vance-studio.netlify.app/',
+      thumbnail: '/projects/vance-studio.png',
       shortDescription:
         'Editorial photography folio for Elena Vance — selected works, philosophy, commissions, and contact.',
       description:

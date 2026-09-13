@@ -68,8 +68,14 @@ app.get('/api/projects', async (_req, res) => {
       const slugs = new Set(existing.map((p) => p.slug));
       const missing = seed.projects.filter((p) => !slugs.has(p.slug));
       if (missing.length) await Project.insertMany(missing);
+      const bySlug = Object.fromEntries(seed.projects.map((p) => [p.slug, p]));
       const projects = await Project.find().sort({ order: 1 }).lean();
-      return res.json(projects);
+      return res.json(
+        projects.map((p) => ({
+          ...p,
+          thumbnail: bySlug[p.slug]?.thumbnail || p.thumbnail,
+        }))
+      );
     }
     memoryProjects = seed.projects.map((p, i) => ({ ...p, _id: String(i + 1) }));
     res.json([...memoryProjects].sort((a, b) => a.order - b.order));
@@ -84,7 +90,8 @@ app.get('/api/projects/:slug', async (req, res) => {
       ? await Project.findOne({ slug: req.params.slug }).lean()
       : memoryProjects.find((p) => p.slug === req.params.slug);
     if (!project) return res.status(404).json({ error: 'Project not found' });
-    res.json(project);
+    const seeded = seed.projects.find((p) => p.slug === req.params.slug);
+    res.json({ ...project, thumbnail: seeded?.thumbnail || project.thumbnail });
   } catch (err) {
     res.status(500).json({ error: 'Could not load project' });
   }
