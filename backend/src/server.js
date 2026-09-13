@@ -61,11 +61,17 @@ app.get('/api/site', (_req, res) => {
 });
 
 app.get('/api/projects', async (_req, res) => {
+  seed = loadSeed();
   try {
     if (mongoReady) {
+      const existing = await Project.find({}, 'slug').lean();
+      const slugs = new Set(existing.map((p) => p.slug));
+      const missing = seed.projects.filter((p) => !slugs.has(p.slug));
+      if (missing.length) await Project.insertMany(missing);
       const projects = await Project.find().sort({ order: 1 }).lean();
       return res.json(projects);
     }
+    memoryProjects = seed.projects.map((p, i) => ({ ...p, _id: String(i + 1) }));
     res.json([...memoryProjects].sort((a, b) => a.order - b.order));
   } catch (err) {
     res.status(500).json({ error: 'Could not load projects' });

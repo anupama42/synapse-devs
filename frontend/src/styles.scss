@@ -3,8 +3,6 @@
   --text: #ffffff;
   --muted: rgba(255, 255, 255, 0.68);
   --cyan: #00e5ff;
-  --purple: #9c27b0;
-  --grad: linear-gradient(120deg, #00e5ff, #7c4dff 55%, #9c27b0);
   --display: 'Syne', 'Segoe UI', sans-serif;
   --body: 'Outfit', 'Segoe UI', sans-serif;
 }
@@ -25,15 +23,15 @@ h1, h2, h3 {
 
 a { color: inherit; text-decoration: none; }
 
-p { line-height: 1.6; }
+p { line-height: 1.65; }
 
 .wrap {
-  padding: 2.5rem 6vw 5rem;
-  max-width: 1180px;
+  width: min(920px, calc(100% - 2.5rem));
+  margin: 0 auto;
+  padding: 2.5rem 0 5rem;
 }
 
 .lede {
-  max-width: 40rem;
   color: var(--muted);
   font-size: 1.08rem;
 }
@@ -44,13 +42,6 @@ p { line-height: 1.6; }
   font-size: 0.72rem;
   color: var(--cyan);
   margin: 0 0 0.6rem;
-}
-
-.grad {
-  background: var(--grad);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .white { color: #fff; }
@@ -65,7 +56,7 @@ p { line-height: 1.6; }
 
 .panel {
   padding: 1.25rem 1.3rem;
-  border-radius: 20px;
+  border-radius: 16px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -74,11 +65,11 @@ p { line-height: 1.6; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
+  font-weight: 600;
   color: #041018;
-  background: var(--grad);
-  padding: 0.75rem 1.15rem;
-  border-radius: 999px;
+  background: #e8fbff;
+  padding: 0.7rem 1.15rem;
+  border-radius: 8px;
   border: 0;
   cursor: pointer;
   font: inherit;
@@ -87,7 +78,7 @@ p { line-height: 1.6; }
 .btn.ghost {
   color: #fff;
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.28);
 }
 
 @media (max-width: 800px) {

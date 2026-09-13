@@ -7,6 +7,7 @@ import { ProjectCardComponent } from '../project-card.component';
   selector: 'app-work',
   imports: [AsyncPipe, ProjectCardComponent],
   templateUrl: './work.page.html',
+  styleUrl: './work.page.scss',
 })
 export class WorkPage {
   projects$ = inject(ApiService).projects();

@@ -1,27 +1,20 @@
 @if (data$ | async; as data) {
   <section class="wrap">
     <p class="eyebrow">About</p>
-    <h1>Two people. One stack. One thread of responsibility.</h1>
-    <p class="lede">
-      SynapseDevs is Anupama and Shreya Singh — a two-person full-stack team. You talk to a pair that already
-      works together, mixed across the product: web, mobile, and the last 10% of going live.
-    </p>
-    <div class="grid-2">
-      @for (person of data.team; track person.name) {
-        <article class="panel">
-          <p class="eyebrow">{{ person.role }}</p>
-          <h2>{{ person.name }}</h2>
-          <p>{{ person.longBio }}</p>
-        </article>
-      }
+    <h1>{{ data.site.founders }}</h1>
+    <div class="about-layout">
+      <figure class="photo">
+        <img src="/about-team.png" alt="Anupama &amp; Shreya — placeholder photo. Replace this file with your own." />
+        <figcaption class="muted">Placeholder photo — swap <code>about-team.png</code> when you have a real one.</figcaption>
+      </figure>
+      <div>
+        <p class="lede">{{ data.site.about }}</p>
+        <p>
+          Combined skill set, not a bench of specialists. Website work sits in the same conversation from design
+          through deploy. {{ data.site.pricingNote }}
+        </p>
+        <p><a class="btn" routerLink="/contact">Work with us</a></p>
+      </div>
     </div>
-    <article class="panel" style="margin-top: 1.2rem">
-      <h2>How we work</h2>
-      <p>
-        Combined skill set, not a bench of specialists you have to coordinate. Web and mobile sit in the same
-        conversation. Pricing is {{ data.site.pricingNote }}
-      </p>
-      <p><a class="btn" routerLink="/contact" style="margin-top: 0.8rem">Work with us</a></p>
-    </article>
   </section>
 }

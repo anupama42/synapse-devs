@@ -2,6 +2,8 @@ export interface SiteConfig {
   name: string;
   tagline: string;
   valueProposition: string;
+  founders: string;
+  about: string;
   email: string;
   whatsapp: string;
   instagram: string;

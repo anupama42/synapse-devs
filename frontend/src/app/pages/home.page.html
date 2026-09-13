@@ -1,9 +1,9 @@
 @if (site$ | async; as data) {
-  <section class="hero">
-    <p class="eyebrow">Full-stack duo · live work only</p>
+  <section class="hero wrap">
+    <p class="eyebrow">{{ data.site.founders }} · live work only</p>
     <h1>
       <span class="white">We build the product.</span><br />
-      <span class="grad">Then we put it on the internet.</span>
+      Then we put it on the internet.
     </h1>
     <p class="lead">{{ data.site.valueProposition }}</p>
     <div class="actions">
@@ -16,9 +16,9 @@
 <section class="wrap">
   <div class="section-head">
     <h2>Featured</h2>
-    <a routerLink="/work">Full grid →</a>
+    <a routerLink="/work">Full list →</a>
   </div>
-  <div class="grid-2">
+  <div class="list">
     @for (project of featured$ | async; track project.slug) {
       <app-project-card [project]="project" />
     }

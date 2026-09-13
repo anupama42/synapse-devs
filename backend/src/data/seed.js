@@ -3,7 +3,10 @@ module.exports = {
     name: 'SynapseDevs',
     tagline: 'Code. Connect. Create.',
     valueProposition:
-      'A two-person full-stack team that ships real, live products — web, mobile, and the systems behind them.',
+      'Anupama & Shreya — a full-stack pair that ships real, live products: web, mobile, and the work that gets a site online.',
+    founders: 'Anupama & Shreya',
+    about:
+      'Anupama & Shreya have more than five years of experience in the IT industry. We work as one team on projects that need website development — from first brief to a live site you can click. Same stack, same backlog, no split of “who owns what.”',
     email: 'synapsedevs94@gmail.com',
     whatsapp: '',
     instagram: 'https://www.instagram.com/synapsedevs94/',
@@ -120,13 +123,61 @@ module.exports = {
       shortDescription:
         'Corporate site for a security and manpower company — services, vetting process, FAQ, quotes, careers.',
       description:
-        'Services breakdown, a four-step vetting process, team, FAQ, quote-request form, WhatsApp integration, and a dedicated careers page. The densest of the four builds.',
+        'Services breakdown, a four-step vetting process, team, FAQ, quote-request form, WhatsApp integration, and a dedicated careers page.',
       techStack: ['React', 'Forms', 'Maps', 'Netlify'],
       role: 'Full-stack — multi-section corporate IA, forms, CTAs',
       highlight: 'Feature-dense single-site build: forms, maps, multiple CTAs, careers subpage.',
       accent: '#ce93d8',
       featured: true,
       order: 4,
+    },
+    {
+      slug: 'bakers-pantry',
+      name: "The Baker's Pantry",
+      category: 'E-commerce / Specialty retail',
+      liveUrl: 'https://thebakerspantry.netlify.app',
+      shortDescription:
+        'A modern supply shop for artisan bakers — raw ingredients, décor tools, and weekend masterclasses.',
+      description:
+        'Catalog for couverture chocolate, molds, and workshops, plus signature bakery items. Shop, class, and order CTAs on a brand-forward pantry site.',
+      techStack: ['React', 'CSS', 'Netlify'],
+      role: 'Front-end — catalog layout, product cards, retail IA',
+      highlight: 'Retail + workshop mix: supplies, specialties, and class booking in one shop.',
+      accent: '#e8c39e',
+      featured: true,
+      order: 5,
+    },
+    {
+      slug: 'apex-athletics',
+      name: 'Apex Athletics',
+      category: 'Business / Fitness club website',
+      liveUrl: 'https://apex-athletics-khaki.vercel.app/',
+      shortDescription:
+        'High-performance club site: training pillars, class calendar, membership tiers, and trial CTAs.',
+      description:
+        'Strength lab, MetCon arena, and recovery zone explained as product pillars. Weekly class roster with remaining spots, plus Foundation / Performance / Private pricing.',
+      techStack: ['React', 'Next.js', 'Vercel'],
+      role: 'Front-end — conversion layout, schedule, membership plans',
+      highlight: 'Outcome-led fitness marketing: schedule, waitlist, and transparent memberships.',
+      accent: '#7cff6b',
+      featured: true,
+      order: 6,
+    },
+    {
+      slug: 'vance-studio',
+      name: 'Vance Studio',
+      category: 'Portfolio / Photography',
+      liveUrl: 'https://vance-studio.netlify.app/',
+      shortDescription:
+        'Editorial photography folio for Elena Vance — selected works, philosophy, commissions, and contact.',
+      description:
+        'Quiet, image-led site for editorial portraiture and brand campaigns. Work grid, method, commercial services, and a commission CTA.',
+      techStack: ['React', 'CSS', 'Netlify'],
+      role: 'Front-end — editorial layout, gallery, commission funnel',
+      highlight: 'Fine-art portfolio: still imagery, philosophy, and worldwide commission intake.',
+      accent: '#c9b8a8',
+      featured: true,
+      order: 7,
     },
   ],
 };

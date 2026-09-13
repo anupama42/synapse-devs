@@ -7,6 +7,7 @@ import { ApiService } from '../api.service';
   selector: 'app-about',
   imports: [AsyncPipe, RouterLink],
   templateUrl: './about.page.html',
+  styleUrl: './about.page.scss',
 })
 export class AboutPage {
   data$ = inject(ApiService).site();

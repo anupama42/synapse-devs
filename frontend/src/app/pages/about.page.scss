@@ -1,0 +1,40 @@
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 2rem;
+  align-items: start;
+  margin-top: 1.5rem;
+}
+
+.photo {
+  margin: 0;
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #0b0e16;
+}
+
+.photo figcaption {
+  margin-top: 0.55rem;
+  font-size: 0.8rem;
+}
+
+.photo code {
+  font-size: 0.78rem;
+}
+
+.btn {
+  margin-top: 1rem;
+}
+
+@media (max-width: 800px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+}
