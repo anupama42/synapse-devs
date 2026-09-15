@@ -3,6 +3,7 @@ import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } fro
 import { AsyncPipe } from '@angular/common';
 import { filter } from 'rxjs';
 import { ApiService } from './api.service';
+import { PAGE_SEO, SeoPayload, SeoService } from './seo';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import { ApiService } from './api.service';
 })
 export class AppComponent {
   private api = inject(ApiService);
+  private seo = inject(SeoService);
   menuOpen = false;
   data$ = this.api.site();
   links = [
@@ -24,8 +26,14 @@ export class AppComponent {
   ];
 
   constructor(router: Router) {
-    router.events.pipe(filter((e) => e instanceof NavigationEnd)).subscribe(() => {
+    router.events.pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd)).subscribe(() => {
       this.menuOpen = false;
+      let route = router.routerState.root;
+      while (route.firstChild) {
+        route = route.firstChild;
+      }
+      const seo = (route.snapshot.data['seo'] as SeoPayload | undefined) ?? PAGE_SEO['home'];
+      this.seo.apply(seo);
     });
   }
 

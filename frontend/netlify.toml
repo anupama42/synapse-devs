@@ -1,0 +1,7 @@
+# Enable Prerendering in Netlify: Site configuration → Build & deploy → Post processing → Prerendering.
+# That serves static HTML to Googlebot so route-specific Title/Meta tags are visible without waiting on JS.
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
