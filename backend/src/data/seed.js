@@ -186,5 +186,39 @@ module.exports = {
       featured: true,
       order: 7,
     },
+    {
+      slug: 'smilelab',
+      name: 'SmileLab',
+      category: 'Business / Dental clinic website',
+      liveUrl: 'https://clinical-web-demo.netlify.app/',
+      thumbnail: '/projects/smilelab.png',
+      shortDescription:
+        'Premium dental and aesthetic clinic site — services, before/after cases, doctor profile, reviews, and booking CTAs.',
+      description:
+        'Cosmetic dentistry, implants, and general practice presented as product lines. Philosophy, clinical cases, FAQs, and appointment conversion across a calm medical brand.',
+      techStack: ['React', 'CSS', 'Netlify'],
+      role: 'Front-end — clinic IA, case grid, conversion CTAs',
+      highlight: 'Healthcare marketing site: services, proof, and book-an-appointment paths.',
+      accent: '#7eb6ff',
+      featured: true,
+      order: 8,
+    },
+    {
+      slug: 'cyber-city-tours',
+      name: 'Cyber City Tour & Travels',
+      category: 'Business / Travel & cab booking',
+      liveUrl: 'https://cyber-city-tour-travels.vercel.app/',
+      thumbnail: '/projects/cyber-city-tours.png',
+      shortDescription:
+        'Ranchi cab and tour operator site — fleet, packages, quote form, and 24/7 booking for airport and outstation trips.',
+      description:
+        'Car rentals, tickets, and holiday packages with a quote request flow. Fleet cards, Jharkhand itineraries, traveler reviews, and local trust marks (FJCCI, JTDC, MSME).',
+      techStack: ['React', 'Next.js', 'Vercel'],
+      role: 'Front-end — booking form, fleet catalog, tour packages',
+      highlight: 'Local travel operator UX: quote-first booking, fleet, and destination packages.',
+      accent: '#ffd54f',
+      featured: true,
+      order: 9,
+    },
   ],
 };

@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { AbstractControl, FormBuilder, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { ApiService } from '../api.service';
+import { LoadingSpinnerComponent } from '../loading-spinner.component';
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -14,7 +15,7 @@ function emailAddress(control: AbstractControl): ValidationErrors | null {
 
 @Component({
   selector: 'app-contact',
-  imports: [AsyncPipe, ReactiveFormsModule],
+  imports: [AsyncPipe, ReactiveFormsModule, LoadingSpinnerComponent],
   templateUrl: './contact.page.html',
   styleUrl: './contact.page.scss',
 })

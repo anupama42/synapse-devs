@@ -1,11 +1,11 @@
-@if (site$ | async; as data) {
+@if (vm$ | async; as vm) {
   <section class="hero wrap">
-    <p class="eyebrow">{{ data.site.founders }} · live work only</p>
+    <p class="eyebrow">{{ vm.data.site.founders }} · live work only</p>
     <h1>
       <span class="white">We build the product.</span><br />
       Then we put it on the internet.
     </h1>
-    <p class="lead">{{ data.site.valueProposition }}</p>
+    <p class="lead">{{ vm.data.site.valueProposition }}</p>
     <p class="lead">
       Custom web development agency work: frontend engineering and premium UI/UX for fitness sites, bakery
       e-commerce, B2B catalogs, and live product apps.
@@ -15,16 +15,18 @@
       <a class="btn ghost" routerLink="/contact">Start a conversation</a>
     </div>
   </section>
-}
 
-<section class="wrap">
-  <div class="section-head">
-    <h2>Featured</h2>
-    <a routerLink="/work">Full list →</a>
-  </div>
-  <div class="list">
-    @for (project of featured$ | async; track project.slug) {
-      <app-project-card [project]="project" />
-    }
-  </div>
-</section>
+  <section class="wrap">
+    <div class="section-head">
+      <h2>Featured</h2>
+      <a routerLink="/work">Full list →</a>
+    </div>
+    <div class="list">
+      @for (project of vm.featured; track project.slug) {
+        <app-project-card [project]="project" />
+      }
+    </div>
+  </section>
+} @else {
+  <app-loading-spinner />
+}

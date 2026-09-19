@@ -2,12 +2,16 @@
   <p class="eyebrow">Work</p>
   <h1>Live projects — custom web development &amp; premium UI/UX</h1>
   <p class="lede">
-    Proof of work as a custom web development agency: fitness website builds, bakery e-commerce UI, B2B catalogs,
-    booking platforms, and hospitality sites. Each card is a live product, not a mockup.
+    Proof of work as a custom web development agency: fitness website builds, bakery e-commerce UI, dental clinic
+    sites, travel booking, B2B catalogs, and hospitality. Each card is a live product, not a mockup.
   </p>
-  <div class="list">
-    @for (project of projects$ | async; track project.slug) {
-      <app-project-card [project]="project" />
-    }
-  </div>
+  @if (projects$ | async; as projects) {
+    <div class="list">
+      @for (project of projects; track project.slug) {
+        <app-project-card [project]="project" />
+      }
+    </div>
+  } @else {
+    <app-loading-spinner />
+  }
 </section>
