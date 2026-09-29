@@ -220,5 +220,22 @@ module.exports = {
       featured: true,
       order: 9,
     },
+    {
+      slug: 'arch-studio',
+      name: 'ArchStudio',
+      category: 'Business / Architecture studio website',
+      liveUrl: 'https://arch-studio-demo.vercel.app/',
+      thumbnail: '/projects/arch-studio.png',
+      shortDescription:
+        'Engineering and architecture studio site — process, materials, awards, and inquiry CTAs for luxury built work.',
+      description:
+        'Editorial studio narrative: methodology, material library, partnership, and a four-step execution framework from site strategy to handover. Image-led, high-contrast brand for a design practice.',
+      techStack: ['React', 'Next.js', 'Vercel'],
+      role: 'Front-end — studio IA, process sections, conversion footer',
+      highlight: 'Architecture marketing: process, materials, and initiate-project CTA.',
+      accent: '#d4c4a8',
+      featured: true,
+      order: 10,
+    },
   ],
 };
