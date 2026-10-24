@@ -31,6 +31,7 @@ export class AppComponent {
   email = site.email;
   phone = site.phone;
   socials = site.socials.filter((item) => item.url);
+  blogsUrl = site.socials.find((item) => item.label === 'Blog')?.url ?? '';
   menuOpen = false;
   lang = this.i18n.lang;
   links = [

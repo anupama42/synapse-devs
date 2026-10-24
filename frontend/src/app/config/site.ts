@@ -39,7 +39,11 @@ export const site = {
   phone: '',
   cityRegion: '',
   areaServed: 'India',
-  socials: [{ label: 'Instagram', url: 'https://www.instagram.com/synapsedevs94/' }] as SocialLink[],
+  socials: [
+    { label: 'Instagram', url: 'https://www.instagram.com/synapsedevs.co/' },
+    { label: 'LinkedIn', url: 'https://www.linkedin.com/company/synapsedevs/' },
+    { label: 'Blog', url: 'https://medium.com/@synapsedevs94/' },
+  ] as SocialLink[],
   ga4Id: '',
   clarityId: '',
   bookingUrl: '',

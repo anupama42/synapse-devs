@@ -81,7 +81,7 @@ main,
 .foot {
   width: min(920px, calc(100% - 2.5rem));
   margin: 0 auto;
-  padding: 3rem 0 calc(6.5rem + env(safe-area-inset-bottom));
+  padding: 3rem 0 calc(12.5rem + env(safe-area-inset-bottom));
   border-top: 1px solid var(--line);
   text-align: center;
 }

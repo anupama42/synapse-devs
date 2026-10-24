@@ -24,6 +24,9 @@
             link.labelKey | t
           }}</a>
         }
+        @if (blogsUrl) {
+          <a [href]="blogsUrl" target="_blank" rel="noopener noreferrer">{{ 'nav.blogs' | t }}</a>
+        }
       </nav>
     </div>
   </header>
