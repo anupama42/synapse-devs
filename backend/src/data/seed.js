@@ -237,5 +237,39 @@ module.exports = {
       featured: true,
       order: 10,
     },
+    {
+      slug: 'voxcvai',
+      name: 'VoxCV',
+      category: 'SaaS / ATS resume compiler',
+      liveUrl: 'https://voxcvai.vercel.app/',
+      thumbnail: '/projects/voxcvai.png',
+      shortDescription:
+        'Voice-to-CV product that turns spoken experience into an ATS-ready resume without inventing work history.',
+      description:
+        'Speak a role, match it to a job description, and export a clinical PDF. Skills radar, application ledger, and pricing for a single hunt, a monthly plan, or a 24-hour pass.',
+      techStack: ['React', 'Next.js', 'Vercel'],
+      role: 'Front-end — product narrative, compiler demo, pricing',
+      highlight: 'ATS compiler marketing: voice ingest, keyword match, and PDF export.',
+      accent: '#ffe14a',
+      featured: true,
+      order: 11,
+    },
+    {
+      slug: 'oceara',
+      name: 'Oceara',
+      category: 'Business / Event staffing',
+      liveUrl: 'https://oceara-preview.netlify.app/',
+      thumbnail: '/projects/oceara.png',
+      shortDescription:
+        'Event staffing and manpower site — hosts, hospitality, corporate deployments, and a plan-your-event inquiry.',
+      description:
+        'Nationwide event crews for corporate functions, brand activations, and hospitality. Service lines, live deployments, city coverage, and a quote form for staff count and event date.',
+      techStack: ['React', 'CSS', 'Netlify'],
+      role: 'Front-end — service IA, proof gallery, inquiry form',
+      highlight: 'Event manpower marketing: roles, cities, and a plan-your-event CTA.',
+      accent: '#3d7cff',
+      featured: true,
+      order: 12,
+    },
   ],
 };

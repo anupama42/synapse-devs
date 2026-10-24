@@ -1,21 +1,14 @@
-@if (data$ | async; as data) {
-  <section class="wrap">
-    <p class="eyebrow">About</p>
-    <h1>{{ data.site.founders }}</h1>
-    <div class="about-layout">
-      <figure class="photo">
-        <img src="/about-team.png" alt="Anupama &amp; Shreya — placeholder photo. Replace this file with your own." />
-      </figure>
-      <div>
-        <p class="lede">{{ data.site.about }}</p>
-        <p>
-          Combined skill set, not a bench of specialists. Website work sits in the same conversation from design
-          through deploy. {{ data.site.pricingNote }}
-        </p>
-        <p><a class="btn" routerLink="/contact">Work with us</a></p>
-      </div>
+<section class="wrap">
+  <p class="eyebrow">{{ 'about.eyebrow' | t }}</p>
+  <h1>{{ 'about.heading' | t }}</h1>
+  <div class="about-layout">
+    <figure class="photo">
+      <img src="/about-team.png" alt="Anupama and Shreya" width="960" height="720" />
+    </figure>
+    <div>
+      <p class="lede">{{ 'about.story' | t }}</p>
+      <p>{{ 'about.extra' | t }} {{ 'about.note' | t }}</p>
+      <p><a class="btn" routerLink="/" fragment="estimate">{{ 'cta.workWithUs' | t }}</a></p>
     </div>
-  </section>
-} @else {
-  <app-loading-spinner />
-}
+  </div>
+</section>

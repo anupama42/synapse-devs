@@ -1,15 +1,11 @@
-import { Component, inject } from '@angular/core';
-import { AsyncPipe } from '@angular/common';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ApiService } from '../api.service';
-import { LoadingSpinnerComponent } from '../loading-spinner.component';
+import { TranslatePipe } from '../i18n/translate.pipe';
 
 @Component({
   selector: 'app-about',
-  imports: [AsyncPipe, RouterLink, LoadingSpinnerComponent],
+  imports: [RouterLink, TranslatePipe],
   templateUrl: './about.page.html',
   styleUrl: './about.page.scss',
 })
-export class AboutPage {
-  data$ = inject(ApiService).site();
-}
+export class AboutPage {}

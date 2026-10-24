@@ -1,0 +1,61 @@
+<section class="hero wrap">
+  <p class="eyebrow">{{ 'web.eyebrow' | t }}</p>
+  <h1>{{ 'web.h1' | t }}</h1>
+  <p class="lead">{{ 'web.lead' | t }}</p>
+  <p class="lead">{{ 'web.scope' | t }}</p>
+  <div class="actions">
+    <a class="btn" routerLink="/" fragment="estimate" (click)="track('hero_estimate')">{{ 'cta.estimate' | t }}</a>
+    @if (call()) {
+      <a
+        class="btn ghost"
+        [href]="call()"
+        [attr.target]="callExternal() ? '_blank' : null"
+        rel="noopener noreferrer"
+        (click)="track('hero_call')"
+        >{{ 'cta.call' | t }}</a
+      >
+    }
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="offer-heading">
+  <h2 id="offer-heading">{{ 'web.offer' | t }}</h2>
+  <div class="grid-2">
+    @for (service of services(); track service.key) {
+      <article class="panel">
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.body }}</p>
+        <p>{{ service.price }}</p>
+        @if (service.key === 'hrms') {
+          <!-- Attach a real HR software case study here when one is shipped. Do not add result claims without it. -->
+        }
+      </article>
+    }
+  </div>
+  <p>
+    {{ 'web.also' | t }}
+    <a routerLink="/local-business">{{ 'web.alsoLink' | t }}</a>
+  </p>
+  <p class="actions">
+    <a class="btn" routerLink="/" fragment="estimate" (click)="track('after_services')">{{ 'cta.estimate' | t }}</a>
+  </p>
+</section>
+
+@if (projects.length) {
+  <section class="wrap" aria-labelledby="cases-heading">
+    <h2 id="cases-heading">{{ 'web.cases' | t }}</h2>
+    <p class="lede">{{ 'web.cases.lede' | t }}</p>
+    <div class="list">
+      @for (project of projects; track project.slug) {
+        <app-project-card [project]="project" />
+      }
+    </div>
+  </section>
+}
+
+<app-how-we-work />
+<p class="wrap actions">
+  <a class="btn" routerLink="/" fragment="estimate" (click)="track('after_process')">{{ 'cta.estimate' | t }}</a>
+</p>
+<app-faq-list [items]="faqs()" headingKey="faq.web" />
+<app-contact-form headingKey="contact.estimate" submitKey="cta.estimate" page="web-development" />

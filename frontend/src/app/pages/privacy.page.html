@@ -1,0 +1,22 @@
+<section class="wrap">
+  <p class="eyebrow">{{ 'privacy.eyebrow' | t }}</p>
+  <h1>{{ 'privacy.h1' | t }}</h1>
+  <p>{{ 'privacy.intro' | t: { brand: brand } }}</p>
+  <h2>{{ 'privacy.send' | t }}</h2>
+  <p>{{ 'privacy.send.body' | t: { email: email } }}</p>
+  <h2>{{ 'privacy.analytics' | t }}</h2>
+  @if (analytics) {
+    <p>{{ 'privacy.analytics.on' | t }}</p>
+  } @else {
+    <p>{{ 'privacy.analytics.off' | t }}</p>
+  }
+  <h2>{{ 'privacy.photos' | t }}</h2>
+  <p>{{ 'privacy.photos.body' | t }}</p>
+  <h2>{{ 'privacy.questions' | t }}</h2>
+  <p>
+    {{ 'privacy.questions.before' | t }}
+    <a [href]="'mailto:' + email">{{ email }}</a>
+    {{ 'privacy.questions.after' | t }}
+  </p>
+  <p><a routerLink="/">{{ 'cta.back' | t }}</a></p>
+</section>

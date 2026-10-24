@@ -1,0 +1,13 @@
+<section class="wrap">
+  <p class="eyebrow">{{ 'notFound.eyebrow' | t }}</p>
+  <h1>{{ 'notFound.h1' | t }}</h1>
+  <p class="lede">{{ 'notFound.lede' | t }}</p>
+  <p class="actions">
+    <a class="btn" routerLink="/">{{ 'cta.home' | t }}</a>
+    <a class="btn ghost" routerLink="/local-business">{{ 'nav.local' | t }}</a>
+    <a class="btn ghost" routerLink="/web-development">{{ 'nav.webFooter' | t }}</a>
+  </p>
+  @if (wa()) {
+    <p><a [href]="wa()" target="_blank" rel="noopener noreferrer" (click)="track()">{{ 'cta.whatsapp' | t }}</a></p>
+  }
+</section>

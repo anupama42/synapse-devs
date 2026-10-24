@@ -1,0 +1,40 @@
+.prices {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.price-card {
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.amount {
+  font-family: var(--display);
+  font-size: 1.8rem;
+  margin: 0.2rem 0;
+}
+
+.badge {
+  color: var(--accent);
+}
+
+.fits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding: 0;
+  list-style: none;
+}
+
+.fits li {
+  border: 1px solid var(--line);
+  padding: 0.25rem 0.7rem;
+}
+
+.price {
+  font-size: 1.25rem;
+}
+

@@ -18,9 +18,20 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/synapsedevs';
 
+const allowedOrigins = new Set([
+  'https://synapse-devs.netlify.app',
+  'http://localhost:4200',
+  'http://127.0.0.1:4200',
+]);
+
 app.use(cors({
-  origin: 'https://synapse-devs.netlify.app',
-  credentials: true // only if you're using cookies/auth; omit if not
+  origin(origin, callback) {
+    if (!origin || allowedOrigins.has(origin)) {
+      callback(null, true);
+      return;
+    }
+    callback(null, false);
+  },
 }));
 app.use(express.json());
 app.use('/live', express.static(path.join(__dirname, '../public/live')));

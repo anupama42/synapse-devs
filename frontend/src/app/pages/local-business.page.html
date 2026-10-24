@@ -1,0 +1,131 @@
+<section class="hero wrap">
+  <p class="eyebrow">{{ 'local.eyebrow' | t }}</p>
+  <h1>{{ 'local.h1' | t }}</h1>
+  <p class="lead">{{ 'local.lead' | t }}</p>
+  <div class="actions">
+    @if (wa()) {
+      <a class="btn" [href]="wa()" target="_blank" rel="noopener noreferrer" (click)="trackWa('hero')">{{ 'cta.whatsapp' | t }}</a>
+    } @else {
+      <a class="btn" routerLink="/" fragment="estimate" (click)="track('hero')">{{ 'cta.quote' | t }}</a>
+    }
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="kit-heading">
+  <h2 id="kit-heading">{{ 'local.kit' | t }}</h2>
+  <p class="lede">{{ headline() }}.</p>
+  <ul>
+    <li>{{ 'local.kit.site' | t }}</li>
+    <li>{{ 'local.kit.flyers' | t }}</li>
+    <li>{{ 'local.kit.chat' | t }}</li>
+    <li>{{ 'local.kit.google' | t }}</li>
+  </ul>
+  <h3>{{ 'local.addons' | t }}</h3>
+  <ul>
+    @for (addon of addons; track addon.name) {
+      <li>{{ label(addon.name) }}: {{ addonPrice(addon.price) }}</li>
+    }
+  </ul>
+  <h3>{{ 'local.excluded' | t }}</h3>
+  <ul>
+    @for (item of exclusions; track item) {
+      <li>{{ label(item) }}</li>
+    }
+  </ul>
+  <p class="price">{{ priceLabel() }}</p>
+  @if (wa()) {
+    <p class="actions">
+      <a class="btn" [href]="wa()" target="_blank" rel="noopener noreferrer" (click)="trackWa('starter_kit')">{{ 'cta.whatsapp' | t }}</a>
+    </p>
+  }
+</section>
+
+<section class="wrap" aria-labelledby="flyers-heading">
+  <h2 id="flyers-heading">{{ 'local.flyers' | t }}</h2>
+  <p>{{ 'local.flyers.body' | t }}</p>
+  <h3>{{ 'local.fits' | t }}</h3>
+  <ul class="fits">
+    @for (fit of fits; track fit) {
+      <li>{{ ('fit.' + fit) | t }}</li>
+    }
+  </ul>
+  <h3>{{ 'local.get' | t }}</h3>
+  <ul>
+    <li>{{ 'local.get.posts' | t }}</li>
+    <li>{{ 'local.get.status' | t }}</li>
+    <li>{{ 'local.get.menu' | t }}</li>
+    <li>{{ 'local.get.sale' | t }}</li>
+  </ul>
+  <p>{{ 'local.sizes' | t }}</p>
+  <h3>{{ 'local.includes' | t }}</h3>
+  <ul>
+    <li>{{ 'local.includes.logo' | t }}</li>
+    <li>{{ revisions() }}</li>
+    <li>{{ turnaround() }}</li>
+    <li>{{ 'local.includes.files' | t }}</li>
+    @if (captions) {
+      <li>{{ 'local.includes.captions' | t }}</li>
+    }
+  </ul>
+</section>
+
+<section class="wrap" aria-labelledby="prices-heading">
+  <h2 id="prices-heading">{{ 'local.prices' | t }}</h2>
+  <div class="prices">
+    @for (pack of packs(); track pack.id) {
+      <article class="price-card">
+        <h3>{{ pack.name }}</h3>
+        <p class="amount">{{ pack.priceLabel }}</p>
+        <p>{{ pack.cadence }}</p>
+        @if (pack.flyers > 1) {
+          <p>
+            {{ 'local.each' | t: { price: pack.eachLabel } }}
+            @if (pack.save) {
+              · {{ 'local.save' | t: { percent: pack.save } }}
+            }
+          </p>
+        }
+        @if (pack.badge) {
+          <p class="badge">{{ pack.badge }}</p>
+        }
+      </article>
+    }
+  </div>
+  @if (paymentTerms()) {
+    <p>{{ 'local.pay' | t: { terms: paymentTerms() } }}</p>
+  }
+  <p class="actions">
+    @if (wa()) {
+      <a class="btn" [href]="wa()" target="_blank" rel="noopener noreferrer" (click)="trackWa('pricing')">{{ 'cta.whatsapp' | t }}</a>
+    } @else {
+      <a class="btn" routerLink="/" fragment="estimate" (click)="track('pricing')">{{ 'cta.quote' | t }}</a>
+    }
+  </p>
+</section>
+
+<app-before-after />
+
+@if (freeSample && sampleHref()) {
+  <section class="wrap">
+    <h2>{{ 'local.sample' | t }}</h2>
+    <p>{{ 'local.sample.body' | t }}</p>
+    <a class="btn" [href]="sampleHref()" target="_blank" rel="noopener noreferrer" (click)="trackWa('free_sample')">{{ 'cta.sample' | t }}</a>
+  </section>
+}
+
+@if (festive && festiveHref()) {
+  <section class="wrap">
+    <h2>{{ 'local.festive' | t }}</h2>
+    <p>{{ 'local.festive.body' | t }}</p>
+    <a class="btn" [href]="festiveHref()" target="_blank" rel="noopener noreferrer" (click)="trackWa('festive')">{{ 'cta.festive' | t }}</a>
+  </section>
+}
+
+<app-how-we-work />
+<p class="wrap actions">
+  @if (wa()) {
+    <a class="btn" [href]="wa()" target="_blank" rel="noopener noreferrer" (click)="trackWa('after_process')">{{ 'cta.whatsapp' | t }}</a>
+  }
+</p>
+<app-faq-list [items]="faqs()" headingKey="faq.local" />
+<app-contact-form headingKey="contact.shop" submitKey="cta.whatsapp" page="local-business" />

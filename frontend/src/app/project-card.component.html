@@ -5,21 +5,21 @@
       [href]="project.liveUrl"
       target="_blank"
       rel="noopener"
-      [attr.aria-label]="'Open live site: ' + project.name"
+      [attr.aria-label]="openLabel()"
     >
-      <img [src]="thumbnailSrc" [alt]="project.name + ' landing page'" />
+      <img [src]="thumbnailSrc" [alt]="altLabel()" width="1440" height="900" loading="lazy" decoding="async" />
     </a>
   } @else {
     <div class="thumb">
-      <img [src]="thumbnailSrc" [alt]="project.name + ' preview'" />
+      <img [src]="thumbnailSrc" [alt]="altLabel()" width="1440" height="900" loading="lazy" decoding="async" />
     </div>
   }
   <div class="copy">
-    <p class="cat">{{ project.category }}</p>
+    <p class="cat">{{ text('category') }}</p>
     <h3>{{ project.name }}</h3>
-    <p>{{ project.shortDescription }}</p>
+    <p>{{ text('shortDescription') }}</p>
     @if (project.description) {
-      <p class="desc">{{ project.description }}</p>
+      <p class="desc">{{ text('description') }}</p>
     }
     <div class="tags">
       @for (tag of project.techStack; track tag) {

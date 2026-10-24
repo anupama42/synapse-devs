@@ -1,32 +1,93 @@
-@if (vm$ | async; as vm) {
-  <section class="hero wrap">
-    <p class="eyebrow">{{ vm.data.site.founders }} · live work only</p>
-    <h1>
-      <span class="white">We build the product.</span><br />
-      Then we put it on the internet.
-    </h1>
-    <p class="lead">{{ vm.data.site.valueProposition }}</p>
-    <p class="lead">
-      Custom web development agency work: frontend engineering and premium UI/UX for fitness sites, bakery
-      e-commerce, B2B catalogs, and live product apps.
-    </p>
-    <div class="actions">
-      <a class="btn" routerLink="/work">See proof of work</a>
-      <a class="btn ghost" routerLink="/contact">Start a conversation</a>
-    </div>
-  </section>
+<section class="hero wrap">
+  <p class="eyebrow">{{ 'home.eyebrow' | t }}</p>
+  <h1>{{ 'home.h1' | t }}</h1>
+  <p class="lead">{{ 'home.lead' | t }}</p>
+  <p class="lead">{{ 'home.speed' | t }}</p>
+  <div class="actions">
+    @if (wa()) {
+      <a class="btn" [href]="wa()" target="_blank" rel="noopener noreferrer" (click)="trackWa('hero')">{{ 'cta.whatsapp' | t }}</a>
+    } @else {
+      <a class="btn" routerLink="/" fragment="estimate" (click)="track('hero')">{{ 'cta.quote' | t }}</a>
+    }
+    <a class="btn ghost" routerLink="/" fragment="estimate" (click)="track('hero_estimate')">{{ 'cta.estimate' | t }}</a>
+  </div>
+  @if (promises().length) {
+    <p class="trust">{{ promises().join(' · ') }}</p>
+  }
+</section>
 
-  <section class="wrap">
-    <div class="section-head">
-      <h2>Featured</h2>
-      <a routerLink="/work">Full list →</a>
-    </div>
+<section class="wrap" aria-labelledby="paths-heading">
+  <h2 id="paths-heading">{{ 'home.paths' | t }}</h2>
+  <div class="grid-2">
+    <a class="panel path" routerLink="/local-business" (click)="track('path_local')">
+      <h3>{{ 'home.path.local.title' | t }}</h3>
+      <p>{{ 'home.path.local.body' | t }}</p>
+    </a>
+    <a class="panel path" routerLink="/web-development" (click)="track('path_web')">
+      <h3>{{ 'home.path.web.title' | t }}</h3>
+      <p>{{ 'home.path.web.body' | t }}</p>
+    </a>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="services-heading">
+  <h2 id="services-heading">{{ 'home.services' | t }}</h2>
+  <div class="grid-2">
+    <article class="panel">
+      <h3>{{ 'home.services.web' | t }}</h3>
+      <ul>
+        <li><a routerLink="/web-development">{{ 'home.services.sites' | t }}</a></li>
+        <li><a routerLink="/web-development">{{ 'home.services.stores' | t }}</a></li>
+        <li><a routerLink="/web-development">{{ 'home.services.apps' | t }}</a></li>
+        <!-- Attach a real HR software case study before adding results or scale claims. -->
+        <li><a routerLink="/web-development">{{ 'home.services.hrms' | t }}</a></li>
+      </ul>
+    </article>
+    <article class="panel">
+      <h3>{{ 'home.services.brand' | t }}</h3>
+      <ul>
+        <li><a routerLink="/local-business">{{ 'home.services.kit' | t }}</a></li>
+        <li><a routerLink="/local-business">{{ 'home.services.flyers' | t }}</a></li>
+      </ul>
+    </article>
+  </div>
+  <p class="actions">
+    <a class="btn" routerLink="/web-development" (click)="track('after_services')">{{ 'cta.services' | t }}</a>
+  </p>
+</section>
+
+<section class="wrap" aria-labelledby="starter-heading">
+  <h2 id="starter-heading">{{ 'home.starter' | t }}</h2>
+  <p class="lede">{{ 'home.starter.body' | t: { price: starterPrice() } }}</p>
+  <p class="actions">
+    <a class="btn" routerLink="/local-business" (click)="track('starter_teaser')">{{ 'cta.starter' | t }}</a>
+  </p>
+</section>
+
+<section class="wrap" aria-labelledby="work-heading">
+  <h2 id="work-heading">{{ 'home.work' | t }}</h2>
+  <p class="lede">{{ 'home.work.lede' | t }}</p>
+  @if (projects.length) {
     <div class="list">
-      @for (project of vm.featured; track project.slug) {
+      @for (project of projects; track project.slug) {
         <app-project-card [project]="project" />
       }
     </div>
-  </section>
-} @else {
-  <app-loading-spinner />
-}
+    <p class="actions">
+      <a routerLink="/web-development" fragment="cases-heading" (click)="track('work_more')">{{ 'home.work.more' | t }}</a>
+    </p>
+  }
+</section>
+
+<app-how-we-work />
+
+<p class="wrap actions">
+  @if (wa()) {
+    <a class="btn" [href]="wa()" target="_blank" rel="noopener noreferrer" (click)="trackWa('after_process')">{{ 'cta.whatsapp' | t }}</a>
+  }
+  <a class="btn ghost" routerLink="/" fragment="estimate" (click)="track('after_process')">{{ 'cta.estimate' | t }}</a>
+</p>
+
+<app-testimonials />
+<app-faq-list [items]="faqs()" headingKey="faq.home" />
+<app-contact-form page="home" />

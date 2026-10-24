@@ -1,0 +1,26 @@
+<section class="wrap">
+  <p class="eyebrow">{{ 'terms.eyebrow' | t }}</p>
+  <h1>{{ 'terms.h1' | t }}</h1>
+  <p>{{ 'terms.intro' | t: { brand: brand } }}</p>
+  <h2>{{ 'terms.quotes' | t }}</h2>
+  <p>{{ 'terms.quotes.body' | t: { quote: quote() } }}</p>
+  <h2>{{ 'terms.revisions' | t }}</h2>
+  <p>{{ 'terms.revisions.body' | t: { revisions: revisions() } }}</p>
+  <h2>{{ 'terms.payment' | t }}</h2>
+  @if (payment()) {
+    <p>{{ payment() }}</p>
+  } @else {
+    <p>{{ 'terms.payment.unset' | t }}</p>
+  }
+  <h2>{{ 'terms.excluded' | t }}</h2>
+  <ul>
+    @for (item of exclusions; track item) {
+      <li>{{ item | phrase }}</li>
+    }
+  </ul>
+  <h2>{{ 'terms.ownership' | t }}</h2>
+  <p>{{ 'terms.ownership.body' | t: { ownership: ownership() } }}</p>
+  <h2>{{ 'terms.refunds' | t }}</h2>
+  <p>{{ 'terms.refunds.body' | t: { email: email } }}</p>
+  <p><a routerLink="/">{{ 'cta.back' | t }}</a></p>
+</section>
