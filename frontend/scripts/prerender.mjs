@@ -6,8 +6,22 @@ import path from 'node:path';
 const root = path.resolve(import.meta.dirname, '..');
 const dist = path.join(root, 'dist/frontend/browser');
 const shell = fs.readFileSync(path.join(dist, 'index.html'));
-const chrome =
-  process.env.CHROME_PATH || 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
+const candidates = [
+  process.env.CHROME_PATH,
+  'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+  'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+  '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+  '/usr/bin/google-chrome',
+  '/usr/bin/google-chrome-stable',
+  '/usr/bin/chromium',
+  '/usr/bin/chromium-browser',
+].filter(Boolean);
+const chrome = candidates.find((file) => fs.existsSync(file));
+if (!chrome) {
+  // CI images (e.g. Netlify) have no Chrome; ship the SPA shell instead of failing the build.
+  console.warn('Chrome not found, skipping prerender. Set CHROME_PATH to enable it.');
+  process.exit(0);
+}
 const routes = ['/', '/local-business', '/web-development', '/about', '/privacy', '/terms', '/404'];
 
 const types = {
@@ -64,6 +78,7 @@ function dump(route) {
       ],
       { stdio: ['ignore', 'pipe', 'pipe'] }
     );
+    child.on('error', reject);
     let out = '';
     let err = '';
     child.stdout.on('data', (chunk) => {
